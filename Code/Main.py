@@ -35,9 +35,9 @@ regions['deterministic']= range(nrows*ncols)
 
 gwg = Gridworld(initial, nrows, ncols,nagents, targets, obstacles, moveobstacles,regions)
 gwg.colorstates = [set(),set()]
-# gwg.render()
+gwg.render()
 #
-# gwg.draw_state_labels()
+gwg.draw_state_labels()
 
 outfile = '15x20_multitarget_4_8belief.json'
 infile = '15x20_multitarget_4_8belief'
