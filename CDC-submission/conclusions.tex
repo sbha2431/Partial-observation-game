@@ -1,6 +1,7 @@
-Future work
+We have presented a novel approach to solving a surveillance problem with information guarantees. We provide a framework to set up the surveillance problem as a two-player, partial-information game. We then present a method to reason over the belief that the agent has over the target's location and specify formal surveillance requirements. The user can tailor the behaviour to their specific application by using a combination of safety and liveness surveillance objectives.
+
+The benefit of this framework is that techniques commonly used in reactive synthesis can be incorporated in this problem. Among others, two avenues of future work in this framework we are currently looking into include: 
 \begin{itemize}
-\item incremental game solving: use result from previous iterations
-\item first safety surveillance: most general strategy (smaller state space), then liveness
-\item multiple targets
+\item Using CEGAR to automate the choice and refinement of the abstraction partition.
+\item Use compositional synthesis to synthesize decentralized surveillance strategies for multiple agents at once. This will avoid the blow up of the state space that will occur if the multiple agents are solved in a centralized manner.
 \end{itemize}
