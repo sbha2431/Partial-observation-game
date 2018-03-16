@@ -4,4 +4,6 @@ In the construction of the abstract  game structure, we overapproximate the beli
 Let $G$ be a surveillance game structure, $\part = \{Q_i\}_{i=1}^n$ be an abstraction partition, and $G_\abstr = \alpha_\part(G)$. For every surveillance objective $\varphi$, if there exists a wining strategy for the agent in the abstract belief-set game $(\alpha_\part(G),\varphi)$, then there exists a winning strategy for the agent in the concrete surveillance game $(G,\varphi)$.
 \end{theorem}
 
-\paragraph{Choosing an abstraction partition:}
+\paragraph{Choosing an abstraction partition} Choosing an 'appropriate' partition can result in a controller that can guarantee the surveillance specifications with fewer abstract belief states. However, choosing the abstraction partition is, in general, specific to the game environment. In section \ref{sec:experiments}, we present some examples with user specified partitions. If the abstraction is too coarse, the user can refine the abstract states with the help of counterexamples. The nature of these counterexamples for the classes of surveillance specifications presented in this papers are defined in the next section.
+
+The refinement procedure can be automated (CEGAR), however, for space constraints we do not include the details in this paper. We remark that even with automated refinement, the choice of initial abstraction can make a difference in the final number of abstract states.
