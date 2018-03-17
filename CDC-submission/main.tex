@@ -33,9 +33,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract}
-We study the problem of synthesizing a controller for a robot with a \emph{surveillance objective}, that is, the robot is required to  maintain knowledge of the location of a moving, possibly adversarial target. We formulate this problem as a one-sided partial-information  game in which the winning condition for the agent is specified as a temporal logic formula. The specification formalizes the surveillance requirement given by the user, including additional non-surveillance tasks. In order to synthesize a surveillance strategy that meets the specification, we transform the partial-information game into a perfect-information one, using abstraction to mitigate the exponential blow-up typically incurred by such transformations. This enables the use of off-the-shelf tools for reactive synthesis. 
-%We use counterexample-guided refinement to automatically achieve abstraction precision that is sufficient to synthesize a surveillance strategy.
-We evaluate the proposed method on two case-studies, demonstrating its applicability to large state-spaces and diverse requirements.\looseness=-1
+%<<<<<<< HEAD
+%We study the problem of synthesizing a controller for a robot with a \emph{surveillance objective}, that is, the robot is required to  maintain knowledge of the location of a moving, possibly adversarial target. We formulate this problem as a one-sided partial-information  game in which the winning condition for the agent is specified as a temporal logic formula. The specification formalizes the surveillance requirement given by the user, including additional non-surveillance tasks. In order to synthesize a surveillance strategy that meets the specification, we transform the partial-information game into a perfect-information one, using abstraction to mitigate the exponential blow-up typically incurred by such transformations. This enables the use of off-the-shelf tools for reactive synthesis. 
+%%We use counterexample-guided refinement to automatically achieve abstraction precision that is sufficient to synthesize a surveillance strategy.
+%We evaluate the proposed method on two case-studies, demonstrating its applicability to large state-spaces and diverse requirements.\looseness=-1
+%=======
+
+We study the problem of synthesizing a controller for a robot with a \emph{surveillance objective}, that is, the robot is required to  maintain knowledge of the location of a moving, possibly adversarial target. We formulate this problem as a one-sided partial-information  game as the location of the target is not always known. We transform the partial-information game into a perfect-information one, using abstraction to mitigate the exponential blow-up typically incurred by such transformations. We then leverage this reduction by assigning \emph{surveillance predicates} to the belief states allowing us to specify the winning condition for the agent as a temporal logic formula. The specification formalizes the surveillance requirement given by the user, including additional non-surveillance tasks. This framework enables the use of off-the-shelf tools for reactive synthesis. We demonstrate the ability of this framework in experiments to tailor different surveillance behaviour characteristics based on the needs of the user.
+
+\looseness=-1
+
+
+%We study the problem of synthesizing a controller for a robot with a \emph{surveillance objective}, that is, the robot is required to  maintain knowledge of the location of a moving, possibly adversarial target. We formulate this problem as a one-sided partial-information  game in which the winning condition for the agent is specified as a temporal logic formula. The specification formalizes the surveillance requirement given by the user, including additional non-surveillance tasks. In order to synthesize a surveillance strategy that meets the specification, we transform the partial-information game into a perfect-information one, using abstraction to mitigate the exponential blow-up typically incurred by such transformations. This enables the use of off-the-shelf tools for reactive synthesis. We use counterexample-guided refinement to automatically achieve abstraction precision that is sufficient to synthesize a surveillance strategy. We evaluate the proposed method on two case-studies, demonstrating its applicability to large state-spaces and diverse requirements.\looseness=-1
+%>>>>>>> faa5d5fb9b1a257dc7138f42a89542f0a4e8a78e
 
 
 
