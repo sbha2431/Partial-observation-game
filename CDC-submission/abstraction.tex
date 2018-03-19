@@ -1,9 +1,9 @@
-We used the belief-set game structure in order to state the surveillance objective of the agent. While in principle it is possible to solve the surveillance strategy synthesis problem on this game, this is in most cases computationally infeasible, since the size of this game is exponential in the size of the original game. To circumvent this construction when possible, we propose an abstraction-based method, that given a surveillance game structure and a partition of the set of the target's locations, yields an approximation that is sound with respect to surveillance objectives for the agent.
+We used the belief-set game structure in order to state the surveillance objective of the agent. While in principle it is possible to solve the surveillance strategy synthesis problem on this game, it is in most cases computationally infeasible, since the size of this game is exponential in the size of the original game. To circumvent such a construction when possible, we propose an abstraction-based method, that given a surveillance game structure and a partition of the set of the target's locations, yields an approximation that is sound with respect to surveillance objectives for the agent.
 
 
 An \emph{abstraction partition} is a family $\part = \{Q_i\}_{i=1}^n$ of subsets of $L_t$, $Q_i \subseteq L_t$ such that the following hold:
 \begin{itemize}
-\item $\bigcup_{i=1}^n Q_i = L_t$ and $Q_i \cap Q_j = \emptyset$ for all $i \neq j$;
+\item $\bigcup_{i=1}^n Q_i = L_t$ and $Q_i \cap Q_j = \emptyset$ for all $i \neq j$.
 \item For each $p \in \AP$, $Q \in \part$ and $l_a \in L_a$, it holds that $(l_a,l_t') \models p$ iff $(l_a,l_t'') \models p$ for every $l_t',l_t'' \in Q$.
 \end{itemize}
 Intuitively, these conditions mean that $\mathcal Q$ partitions the set of locations of the target, and the concrete locations in each of the sets in $\part$ agree on the value of the  propositions in $\AP$.
@@ -21,7 +21,7 @@ $\gamma(l_t) = \{l_t\}$ for $l_t \in L_t$, and  $\gamma(A) = \bigcup_{Q \in A} Q
 %\end{cases}
 %$
 
-Intuitively, the abstraction of a set $L$ of locations of the target is set of elements of $\part$ that cover $L$, and each of them has non-empty intersection with $L$. The concretization of a set of elements of $\part$ is the set of locations of the target formed by the union of these sets. Thus, we have $\gamma(\alpha_{\part}(L))\supseteq L$, which means that the belief of the agent is overapproximated by the abstraction as desired.
+Intuitively, the abstraction of a set $L$ of locations of the target is a set of elements of $\part$ that cover $L$, and each of them has non-empty intersection with $L$. The concretization of a set of elements of $\part$ is the set of locations of the target formed by the union of these sets. Thus, we have $\gamma(\alpha_{\part}(L))\supseteq L$, which means that the belief of the agent is overapproximated by the abstraction as desired.
 
 Given a surveillance game structure $G  = (\states,s^\init,\trans,\vis)$ and an abstraction partition $\part = \{Q_i\}_{i=1}^n$ of the set $L_t$, we define the \emph{abstraction of $G$ w.r.t.\ $\part$} to be the game structure 
 $G_\abstr  = \alpha_{\part}(G)= (\states_\abstr,s^\init_\abstr,\trans_\abstr)$, where
@@ -77,7 +77,7 @@ As for the belief-set game structure, the first condition captures the successor
 \vspace{-.2cm}
 \caption{Transitions from the initial state in the abstract game from Example~\ref{ex:simple-abstr-game} where $\alpha_\part(17) = Q_4$ and $\alpha_\part(23) = Q_5$.}
 \label{fig:simple-abstr-game}
-\vspace{-.7cm}
+
 \end{figure}
 
 
