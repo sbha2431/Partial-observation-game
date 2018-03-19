@@ -144,7 +144,7 @@ A \emph{run} in $G_\belief$ is an infinite sequence $s_0,s_1,\ldots$ of states i
 
 A \emph{strategy for the target in $G_\belief$} is a function $f_t: \states_\belief^+ \to \beliefs$ such that $f_t(\pi\cdot s) = B_t$ implies $B_t \in \succs_t(s)$ for every $\pi \in \states_\belief^*$ and $s \in \states_\belief$. That is, a strategy for the target suggests a move resulting in some belief set reachable from some location in the current belief.
 
-A \emph{strategy for the agent in $G_\belief$} is a function $f_a : S^+ \times \beliefs \to S$ such that $f_a(\pi\cdot s,B_t) = (l_a',B_t')$ implies $B_t' = B_t$ and $l_a' \in \succs_a(s,B_t)$ for every $\pi \in \states_\belief^*$, $s \in \states_\belief$ and $B_t \in \beliefs$. Intuitively, a strategy for the agent suggests a move based on the observed history of the play and the current belief about the target's position.
+A \emph{strategy for the agent in $G_\belief$} is a function $f_a : S_\belief^+ \times \beliefs \to S_\belief$ such that $f_a(\pi\cdot s,B_t) = (l_a',B_t')$ implies $B_t' = B_t$ and $l_a' \in \succs_a(s,B_t)$ for every $\pi \in \states_\belief^*$, $s \in \states_\belief$ and $B_t \in \beliefs$. Intuitively, a strategy for the agent suggests a move based on the observed history of the play and the current belief about the target's position.
 
 The outcome of given strategies $f_a$ and $f_t$ for the agent and the target in $G_\belief$, denoted $\outcome(G_\belief,f_a,f_t)$, is a run $s_0,s_1,\ldots$ of $G_\belief$ such that for every $i \geq 0$, we have $s_{i+1} = f_a(s_0,\ldots,s_i,B_t^i)$, where $B_t^i = f_t(s_0,\ldots,s_i)$.
 
