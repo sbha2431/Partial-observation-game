@@ -1,7 +1,7 @@
-We have presented a novel approach to solving a surveillance problem with information guarantees. We provide a framework to set up the surveillance problem as a two-player, partial-information game. We then present a method to reason over the belief that the agent has over the target's location and specify formal surveillance requirements. The user can tailor the behaviour to their specific application by using a combination of safety and liveness surveillance objectives.
+We have presented a novel approach to solving a surveillance problem with information guarantees. We provide a framework that enables the  formalization of the surveillance synthesis problem as a two-player, partial-information game. We then present a method to reason over the belief that the agent has over the target's location and specify formal surveillance requirements. The user can tailor the behaviour to their specific application by using a combination of safety and liveness surveillance objectives.
 
-The benefit of this framework is that techniques commonly used in reactive synthesis can be incorporated in this problem. Among others, two avenues of future work in this framework we are currently looking into include: 
+The benefit of this framework is that it allows us to leverage techniques successfully used in verification and reactive synthesis to develop efficient methods for solving the surveillance problem. can be incorporated in this problem.There are several promising  avenues of future work using and extending this framework. Two of them which we are currently exploring are: 
 \begin{itemize}
-\item Using CEGAR to automate the choice and refinement of the abstraction partition.
-\item Use compositional synthesis to synthesize decentralized surveillance strategies for multiple agents at once. This will avoid the blow up of the state space that will occur if the multiple agents are solved in a centralized manner.
+\item Applying  CEGAR to automate the choice and refinement of the abstraction partition.
+\item Synthesizing distributed strategies for multi-agent surveillance in a decentralized manner. These compositional synthesis methods avoid This will the blow up of the state space that occurs in centralized synthesis procedures as the number of surveillance agents grown.
 \end{itemize}

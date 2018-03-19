@@ -1,15 +1,15 @@
 We report on the application of our method for surveillance synthesis to two case studies. We have implemented the simulation in \texttt{Python}, using the \texttt{slugs} reactive synthesis tool~\cite{EhlersR16}. The experiments were performed on an Intel i5-5300U 2.30 GHz CPU with 8 GB of RAM. 
 
 \subsection{Liveness surveillance specification + task specification}
-Figure~\ref{fig:case1} shows a gridworld divided into  'rooms'. The surveillance objective requires the agent to infinitely often know precisely the location of the target (either see it, or have a belief consisting of one cell). Additionally, it has to perform the task of patrolling (visiting infinitely often) the green 'goal' cell. Formally, the specification is $\LTLglobally\LTLfinally p_1 \wedge \LTLglobally\LTLfinally \mathit{goal}$. The agent can move between $1$ and $3$ cells at a time. The sensor model used here is 'line-of-sight' with a range of 5 cells. The agent cannot see through obstacles (shown in red) and cannot see further than 5 cells. 
+Figure~\ref{fig:case1} shows a gridworld divided into  'rooms'. The surveillance objective requires the agent to infinitely often know precisely the location of the target (either see it, or have a belief consisting of one cell). Additionally, it has to perform the task of patrolling (visiting infinitely often) the green 'goal' cell. Formally, the specification is $\LTLglobally\LTLfinally p_1 \wedge \LTLglobally\LTLfinally \mathit{goal}$. The agent can move between $1$ and $3$ grid cells at each step. The sensor mode, that is, the visibility function, used here is 'line-of-sight' with a range of 5 cells. The agent cannot see through obstacles (shown in red) and cannot see further than 5 cells. 
 
 
 \begin{figure}
-\subfloat[Gridworld with a user provided abstraction with 7 abstract belief states marked in black lines. \label{fig:case1}]{
+\subfloat[Gridworld with a user provided abstraction partition with 7 sets, marked by black lines.. \label{fig:case1}]{
 \includegraphics[scale=0.3]{figs/Liveness_part.png}
 }
 \hfill
-\subfloat[Gridworld showing visibility of the agent. All states in black are invisible to the agent. \label{fig:case1vis}]{
+\subfloat[Gridworld showing visibility of the agent. All locations shown in black are invisible to the agent. \label{fig:case1vis}]{
 \includegraphics[scale=0.3]{figs/Liveness_t1.png}\hspace{.5cm}
 }
 
@@ -20,7 +20,7 @@ Figure~\ref{fig:case1} shows a gridworld divided into  'rooms'. The surveillance
 
 
 
-Using the 7 abstract states as shown in Figure \ref{fig:case1}, the overall number of states in the two-player game is $15\times10 + 2^7 = 278$ states. In contrast, solving the full abstract game will have in the order of $2^{150}$ states, which is a state-space size that state-of-the-art synthesis tools cannot handle. 
+Using the abstraction partition of size 7 shown in Figure \ref{fig:case1}, the overall number of states in the two-player game is $15\times10 + 2^7 = 278$ states. In contrast, solving the full abstract game will have in the order of $2^{150}$ states, which is a state-space size that state-of-the-art synthesis tools cannot handle. 
 
 \begin{figure}
 \begin{minipage}{5.0cm}
@@ -50,13 +50,13 @@ Using the 7 abstract states as shown in Figure \ref{fig:case1}, the overall numb
 \end{minipage}
 
 	
-	\caption{Evolution of the agent's belief in target location as it moves to the goal and loses sight of the target. Grey states represents the states the agent believes the target could be in. We show the belief at different timesteps (note that $t_2$ is excluded for space concerns)
+	\caption{Evolution of the agent's belief about the target's location as it moves to the goal and loses sight of the target. Grey cells represent the locations the agent believes the target could be in. We show the belief at different timesteps $t_1,\ldots,t_7$ (note that $t_2$ is excluded for space concerns)
 		}
 	\label{fig:case1exp}
 	
 \end{figure}
 
-Figure \ref{fig:case1exp} shows how when the agent cannot see the target, the belief (shown in grey) can grow quickly. This growth occurs due to the coarseness of the abstraction, which overapproximates the target's true position. In 7 timesteps, the agent believes the target can exist anywhere in the grid that is not in its vision. It has to then find the target in order to satisfy the surveillance requirement. In this example, 7 abstract states were enough to guarantee the satisfaction surveillance specification, but for comparison, we also solve the game with 12 abstract states to illustrate the change in growth in belief. Figure \ref{fig:case1fineexp} shows the belief states growing much more slowly as the abstract belief states are smaller so it more closely approximates the true belief.
+Figure \ref{fig:case1exp} shows how the belief of the agent (shown in grey) can grow quickly when it cannot see the target. This growth occurs due to the coarseness of the abstraction, which overapproximates the target's true position. In 7 timesteps, the agent believes the target can be anywhere in the grid that is not in its vision. It has to then find the target in order to satisfy the surveillance requirement. In this example, an abstraction partition of size 7 was enough to guarantee the satisfaction surveillance specification.  For the purpose of comparison, we also solve the game with  an abstraction partition of size 12  to illustrate the change in belief growth. Figure \ref{fig:case1fineexp} shows the belief states growing much more slowly as the abstract belief states are smaller, and thus they approximates  more closely  the true belief of the agent.
 
 \begin{figure}
 	\begin{minipage}{5.0cm}
@@ -86,7 +86,7 @@ Figure \ref{fig:case1exp} shows how when the agent cannot see the target, the be
 	\end{minipage}
 	
 	
-	\caption{Evolution of the agent's belief in target location when the game is solved with 12 abstract belief states.
+	\caption{Evolution of the agent's belief about the target's location in a game  with an abstraction partition of size 12.
 	}
 	\label{fig:case1fineexp}
 	
@@ -97,13 +97,13 @@ Figure \ref{fig:case1exp} shows how when the agent cannot see the target, the be
 
 %The refinement algorithm terminates after 5 iterations to produce the abstract partition  corresponding to the numbered sets in figure . There are 9 belief states which results in an additional $2^9 = 512$ states to the full observation game which is far lower than the full reduction which will be a power set of all 104 states.
 
-The additional abstract belief states results in a much larger game as the state space grows exponentially in the number of abstract belief states. Table \ref{tab:exp1} compares the state spaces and the amount of time it takes to synthesize a controller.
+The additional abstraction partitions result in a much larger game as the state space grows exponentially in the size of the abstraction partition. Table \ref{tab:exp1} compares the sizes of the corresponding abstract games, and the amount of time it takes to synthesize a surveillance controller for each of them.
 
 
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{c|c|c}
-		Abstract states & Total states & Synthesis time \\ \hline \hline
+	Size of abstraction partition & Size of abstract game & Synthesis time \\ \hline \hline
 		7 & 278 & 37s \\ 
 		12 & 4346 & 527s \\ 
 	\end{tabular}\caption{Comparison of synthesis times for the two cases} \label{tab:exp1}
