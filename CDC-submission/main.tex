@@ -34,7 +34,7 @@
 
 \begin{abstract}
 
-We provide a novel framework for synthesis of a controller for a robot with a \emph{surveillance objective}, that is, the robot is required to  maintain knowledge of the location of a moving, possibly adversarial target. We formulate this problem as a one-sided partial-information  game in which the winning condition for the agent is specified as a temporal logic formula. The specification formalizes the surveillance requirement given by the user by quantifying and reasoning over the agent's beliefs in a target's location. We also incorporate additional non-surveillance tasks. In order to synthesize a surveillance strategy that meets the specification, we transform the partial-information game into a perfect-information one, using abstraction to mitigate the exponential blow-up typically incurred by such transformations. This transformation enables the use of off-the-shelf tools for reactive synthesis. We evaluate the proposed method on two case-studies, demonstrating its applicability to diverse surveillance requirements.\looseness=-1
+We provide a novel framework for the synthesis of a controller for a robot with a \emph{surveillance objective}, that is, the robot is required to  maintain knowledge of the location of a moving, possibly adversarial target. We formulate this problem as a one-sided partial-information  game in which the winning condition for the agent is specified as a temporal logic formula. The specification formalizes the surveillance requirement given by the user by quantifying and reasoning over the agent's beliefs about a target's location. We also incorporate additional non-surveillance tasks. In order to synthesize a surveillance strategy that meets the specification, we transform the partial-information game into a perfect-information one, using abstraction to mitigate the exponential blow-up typically incurred by such transformations. This transformation enables the use of off-the-shelf tools for reactive synthesis. We evaluate the proposed method on two case-studies, demonstrating its applicability to diverse surveillance requirements.\looseness=-1
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -88,6 +88,10 @@ We provide a novel framework for synthesis of a controller for a robot with a \e
 
 \section{CONCLUSIONS}
 \input{conclusions}
+
+\bigskip
+
+{\bf Acknowledgement:} This work was supported in part by grant Sandia National Lab 801KOB, grant ARO W911NF-15-1-0592,  and grant DARPA W911NF-16-1-0001.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
